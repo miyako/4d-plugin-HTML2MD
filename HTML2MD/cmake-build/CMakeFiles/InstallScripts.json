@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/tmp/html2md-plugin/HTML2MD/cmake-build/cmake_install.cmake",
+		"/tmp/html2md-plugin/HTML2MD/cmake-build/html2md/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

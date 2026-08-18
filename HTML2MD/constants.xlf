@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<xliff version="1.0" xmlns:d4="http://www.4d.com/d4-ns">
+<header>
+    <note>HTML2MD</note>
+</header>
+<group resname="themes">
+    <trans-unit id="html2md-theme" resname="html2md-theme" translate="no">
+        <source>HTML2MD</source>
+    </trans-unit>
+</group>
+<group restype="x-4DK#" d4:groupName="html2md-theme">
+</group>
+</xliff>

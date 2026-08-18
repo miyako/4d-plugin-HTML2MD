@@ -1,0 +1,11 @@
+{
+    "name": "HTML2MD",
+    "id": 20000,
+    "commands": [
+        {
+            "theme": "HTML2MD",
+            "syntax": "HTML2MD(&T):T",
+            "threadSafe": true
+        }
+    ]
+}

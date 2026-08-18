@@ -1,0 +1,2 @@
+/usr/bin/ar qc libhtml2md.a CMakeFiles/html2md.dir/src/html2md.cpp.o CMakeFiles/html2md.dir/src/table.cpp.o
+/usr/bin/ranlib libhtml2md.a
