@@ -65,6 +65,7 @@ jobs:
     name: Build macOS, package, sign, notarize & release
     needs: [version, build-windows]
     runs-on: macos-latest
+    environment: release 
     steps:
       - uses: actions/checkout@v4
         with:
