@@ -1,0 +1,7 @@
+{
+    "cmake.configureArgs": [
+        "-DBUILD_TEST=ON",
+        "-DPYTHON_BINDINGS=ON",
+        "-G=Ninja",        
+    ]
+}

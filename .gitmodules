@@ -1,0 +1,6 @@
+[submodule "4D-Plugin-SDK"]
+	path = 4D-Plugin-SDK
+	url = https://github.com/4d/4D-Plugin-SDK.git
+[submodule "deps/html2md"]
+	path = deps/html2md
+	url = https://github.com/tim-gromeyer/html2md.git
