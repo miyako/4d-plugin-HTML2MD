@@ -7,6 +7,11 @@ set(CMAKE_C_STANDARD 17)
 
 set(SDK_DIR "${CMAKE_SOURCE_DIR}/../4D-Plugin-SDK/4D Plugin API")
 
+# Static CRT for all targets on Windows (must be set before add_subdirectory)
+if(WIN32)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>" CACHE STRING "" FORCE)
+endif()
+
 set(BUILD_EXE OFF CACHE BOOL "" FORCE)
 add_subdirectory("${CMAKE_SOURCE_DIR}/../deps/html2md" "${CMAKE_BINARY_DIR}/html2md")
 
