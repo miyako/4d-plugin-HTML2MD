@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -arch arm64 -bundle -Wl,-headerpad_max_install_names -o /tmp/html2md-plugin/HTML2MD/HTML2MD-test/Plugins/HTML2MD.bundle/Contents/MacOS/HTML2MD "CMakeFiles/HTML2MD.dir/HTML2MD-4dplugin.cpp.o" "CMakeFiles/HTML2MD.dir/tmp/html2md-plugin/4D-Plugin-SDK/4D_Plugin_API/4DPluginAPI.c.o"  -framework CoreGraphics html2md/libhtml2md.a

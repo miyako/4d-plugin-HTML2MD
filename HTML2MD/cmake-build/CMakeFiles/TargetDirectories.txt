@@ -1,6 +1,0 @@
-/tmp/html2md-plugin/HTML2MD/cmake-build/CMakeFiles/HTML2MD.dir
-/tmp/html2md-plugin/HTML2MD/cmake-build/CMakeFiles/edit_cache.dir
-/tmp/html2md-plugin/HTML2MD/cmake-build/CMakeFiles/rebuild_cache.dir
-/tmp/html2md-plugin/HTML2MD/cmake-build/html2md/CMakeFiles/html2md.dir
-/tmp/html2md-plugin/HTML2MD/cmake-build/html2md/CMakeFiles/edit_cache.dir
-/tmp/html2md-plugin/HTML2MD/cmake-build/html2md/CMakeFiles/rebuild_cache.dir
