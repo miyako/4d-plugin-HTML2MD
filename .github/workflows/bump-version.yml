@@ -16,45 +16,32 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: source-version-bump
+  cancel-in-progress: false
+
 jobs:
   bump:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: checkout selected commit
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.sha }}
           fetch-depth: 0
 
-      - name: bump VERSION
-        id: bump
+      - name: validate, bump and push source metadata only
+        env:
+          SELECTED_SHA: ${{ github.sha }}
+          SELECTED_BRANCH: ${{ github.ref_name }}
+          REF_TYPE: ${{ github.ref_type }}
+          MODE: ${{ inputs.mode }}
         run: |
           set -euo pipefail
-          CURRENT=$(cat VERSION)
-          if [ -z "$CURRENT" ]; then
-            echo "Could not read VERSION file" >&2
-            exit 1
-          fi
-
-          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT"
-          case "${{ inputs.mode }}" in
-            major) MAJOR=$((MAJOR+1)); MINOR=0; PATCH=0 ;;
-            minor) MINOR=$((MINOR+1)); PATCH=0 ;;
-            patch) PATCH=$((PATCH+1)) ;;
-          esac
-          NEW="${MAJOR}.${MINOR}.${PATCH}"
-
-          echo "Bumping ${CURRENT} -> ${NEW}"
-          echo "$NEW" > VERSION
-
+          test "$REF_TYPE" = branch
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add VERSION
-          git commit -m "chore: bump version to ${NEW}"
-          git tag "v${NEW}"
-          git push origin HEAD:"${GITHUB_REF_NAME}"
-          git push origin "v${NEW}"
-
-          echo "version=${NEW}" >> "$GITHUB_OUTPUT"
+          python3 .github/scripts/release.py bump --sha "$SELECTED_SHA" --branch "$SELECTED_BRANCH" --mode "$MODE"
 
       - name: summary
-        run: echo "### Bumped to v${{ steps.bump.outputs.version }} — release.yml will pick up the pushed tag." >> "$GITHUB_STEP_SUMMARY"
+        run: echo "### Source version committed. No tag or Build was triggered; run Build manually on the selected branch." >> "$GITHUB_STEP_SUMMARY"
